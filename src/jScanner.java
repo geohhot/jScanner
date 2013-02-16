@@ -20,14 +20,22 @@ public class jScanner {
 		
 		while (argsIn.hasNext()) {
 			String n = argsIn.next();
-			if (n.equals("-h") || n.equals("--host")) {
+			if (n.equalsIgnoreCase("-h") || n.equalsIgnoreCase("--host")) {
 				if(argsIn.hasNext()) {
 					host = argsIn.next();
 				}
 				else {
-					System.out.println("Invalid arguments.");
+					System.out.println("Invalid arguments. Use -? or --help to see help message.");
 					System.exit(0);
 				}
+			}
+			if (n.equalsIgnoreCase("-?") || n.equalsIgnoreCase("--help")) {
+				System.out.println("jScanner - simple port scanner in java");
+				System.out.println("Written by geohhot in 2012/02");
+				System.out.println();
+				System.out.println("Arguments.");
+				System.out.println("-? or --help: show help message(actuall this message)");
+				System.out.println("-h or --host [host] - select host to scan");
 			}
 		}
 		
